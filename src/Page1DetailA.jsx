@@ -1,14 +1,16 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
 export const Page1DetailA = () => {
   const { state } = useLocation();
   console.log("state", state);
+  const history = useHistory();
 
-  const { id } = useParams();
+  const onClickBack = () => history.goBack();
+
   return (
     <div>
       <h1>Page1DetailAページです</h1>
-      <p>パラメーターは{id}です</p>
+      <button onClick={onClickBack}>戻る</button>
     </div>
   );
 };
